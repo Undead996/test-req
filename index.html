@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form method="POST" action="/server.php">
+        <textarea name="data" id="a"></textarea>
+        <input type="submit" value="submit">
+    </form> -->
+    <textarea id="a"></textarea>
+    <button id="b">send request</button>
+    <script>
+        // let txt=document.querySelector("#a");
+        let btn=document.querySelector("#b");
+        let post = {
+              data:{
+                name: "fuck",
+                text: "fetch",
+              }
+        }
+        async function getAndSend(){
+
+  // Default options are marked with *
+        const response = await fetch("/server.php", {
+          method: 'POST', // *GET, POST, PUT, DELETE, etc.
+          headers: {
+            'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: JSON.stringify(post)
+      
+ // body data type must match "Content-Type" header
+         });
+          return response.json(); // parses JSON response into native JavaScript objects
+}
+
+
+
+        btn.addEventListener("click", getAndSend);
+    </script>
+</body>
+</html>

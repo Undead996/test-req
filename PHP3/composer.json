@@ -1,0 +1,6 @@
+{
+    "require": {
+        "webonyx/graphql-php": "^14.5",
+        "lcobucci/jwt": "^3.4"
+    }
+}
